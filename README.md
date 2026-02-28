@@ -141,7 +141,7 @@ cargo bench
 
 ## Roadmap
 
-See [Design Document](docs/design_document.md) for detailed roadmap and architecture.
+See [Design Document](docs/rust_dsp_library_design.md) for detailed roadmap and architecture.
 
 ### Phase 1: Foundation (Weeks 1-4)
 - Core types and traits ✅
