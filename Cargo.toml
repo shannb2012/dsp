@@ -1,0 +1,24 @@
+[package]
+name = "dsp"
+version = "0.1.0"
+edition = "2024"
+authors = ["DSP Library Team"]
+description = "A modern DSP library for audio plugin development"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/shanb2012/rust_dsp"
+
+[lib]
+name = "dsp"
+path = "src/lib.rs"
+
+[dependencies]
+
+[dev-dependencies]
+# For benchmarking and property testing (future)
+# criterion = "0.5"
+# proptest = "1.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
