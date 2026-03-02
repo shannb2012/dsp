@@ -22,6 +22,7 @@
 #![warn(clippy::all)]
 
 pub mod core;
+pub mod buffer;
 
 // Re-export commonly used types
 pub use core::{Sample, SampleRate};
