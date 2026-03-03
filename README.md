@@ -4,31 +4,31 @@ A modern, type-safe Digital Signal Processing library for real-time audio applic
 
 ## Features
 
-- 🎯 **Type Safety**: Leverage Rust's type system to prevent common DSP errors at compile time
-- 🚀 **Performance**: Zero-cost abstractions with performance matching hand-optimized C++
-- 🔒 **Real-Time Safe**: No heap allocations in audio processing paths
-- 🎨 **Generic**: Works with both f32 and f64 sample types
-- 📦 **Modular**: Use only what you need
+- **Type Safety**: Leverage Rust's type system to prevent common DSP errors at compile time
+- **Performance**: Zero-cost abstractions with performance matching hand-optimized C++
+- **Real-Time Safe**: No heap allocations in audio processing paths
+- **Generic**: Works with both f32 and f64 sample types
+- **Modular**: Use only what you need
 
 ## Project Status
 
 🚧 **Early Development** - Currently implementing Phase 1 (Core Module)
 
 ### Completed
-- ✅ Core module with Sample trait
-- ✅ Type-safe SampleRate handling
-- ✅ Parameter types (NormalizedParam, FrequencyHz, TimeSeconds, Decibels)
-- ✅ DSP constants
+- Core module with Sample trait
+- Type-safe SampleRate handling
+- Parameter types (NormalizedParam, FrequencyHz, TimeSeconds, Decibels)
+- DSP constants
 
 ### In Progress
-- 🔨 Buffer module
-- 🔨 Math module (interpolation, smoothing)
-- 🔨 Basic oscillators
+- Buffer module
+- Math module (interpolation, smoothing)
+- Basic oscillators
 
 ### Planned
-- 📋 Filters (biquad, SVF, one-pole)
-- 📋 Envelopes (ADSR)
-- 📋 Effects (delay, chorus, reverb)
+- Filters (biquad, SVF, one-pole)
+- Envelopes (ADSR)
+- Effects (delay, chorus, reverb)
 
 ## Quick Start
 
