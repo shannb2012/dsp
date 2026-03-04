@@ -17,7 +17,7 @@ fn main() {
     // In a real plugin, these slices come from the host. Here we simulate that
     // by allocating Vecs and borrowing their slices.
     let block_size = 8;
-    let mut left  = vec![0.0f32; block_size];
+    let mut left = vec![0.0f32; block_size];
     let mut right = vec![0.0f32; block_size];
 
     // Fill with a simple test signal: 1.0 on the left, 0.5 on the right.
@@ -37,7 +37,11 @@ fn main() {
     buf.apply_gain(gain_linear);
 
     println!("  Peak after -6 dB gain: {:.4}", buf.peak());
-    println!("  Left [0]: {:.4}  Right [0]: {:.4}", buf.channel(0)[0], buf.channel(1)[0]);
+    println!(
+        "  Left [0]: {:.4}  Right [0]: {:.4}",
+        buf.channel(0)[0],
+        buf.channel(1)[0]
+    );
     println!();
 
     // -----------------------------------------------------------------------
@@ -48,7 +52,11 @@ fn main() {
     // Allocate a mono scratch buffer for internal processing.
     // In a plugin you'd do this in `prepare()`, not `process()`.
     let mut scratch = OwnedAudioBuffer::<f32>::new(1, block_size);
-    println!("  Allocated: {} ch × {} samples", scratch.num_channels(), scratch.num_samples());
+    println!(
+        "  Allocated: {} ch × {} samples",
+        scratch.num_channels(),
+        scratch.num_samples()
+    );
 
     // Write a ramp signal into the scratch buffer.
     for (i, s) in scratch.channel_mut(0).iter_mut().enumerate() {
@@ -77,7 +85,8 @@ fn main() {
     let mut wet_r = vec![0.5f32; 4];
 
     let wet = AudioBuffer::from_slices(vec![wet_l.as_mut_slice(), wet_r.as_mut_slice()]).unwrap();
-    let mut dry = AudioBuffer::from_slices(vec![dry_l.as_mut_slice(), dry_r.as_mut_slice()]).unwrap();
+    let mut dry =
+        AudioBuffer::from_slices(vec![dry_l.as_mut_slice(), dry_r.as_mut_slice()]).unwrap();
 
     // 50/50 wet-dry mix: mix wet into dry at gain 0.5.
     // After: dry[n] = 1.0 + 0.5 * 0.5 = 1.25
@@ -94,7 +103,10 @@ fn main() {
 
     let mut silent_data = vec![0.0f32; 64];
     let silent_buf = AudioBuffer::from_slices(vec![silent_data.as_mut_slice()]).unwrap();
-    println!("  Empty buffer is silent: {}", silent_buf.is_silent(SILENCE_THRESHOLD));
+    println!(
+        "  Empty buffer is silent: {}",
+        silent_buf.is_silent(SILENCE_THRESHOLD)
+    );
 
     // -----------------------------------------------------------------------
     // 5. Plugin-style processing loop simulation
@@ -136,7 +148,8 @@ fn main() {
     let block = 4;
     let mut out_l = vec![1.0f32; block];
     let mut out_r = vec![1.0f32; block];
-    let mut output = AudioBuffer::from_slices(vec![out_l.as_mut_slice(), out_r.as_mut_slice()]).unwrap();
+    let mut output =
+        AudioBuffer::from_slices(vec![out_l.as_mut_slice(), out_r.as_mut_slice()]).unwrap();
 
     let mut plugin = SimpleGain::new(-3.0, block);
 

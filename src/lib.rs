@@ -23,6 +23,8 @@
 
 pub mod core;
 pub mod buffer;
+pub mod math;
+pub mod oscillators;
 
 // Re-export commonly used types
 pub use core::{Sample, SampleRate};
